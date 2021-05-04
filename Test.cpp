@@ -15,7 +15,8 @@
 
 using namespace pandemic;
 using namespace std;
-// drive ,build ,fly_direct,fly_charter,fly_shuttle,discover_cure,treat 
+
+
 TEST_CASE("Test OperationsExpert and Dispatcher"){
 //OperationsExpert
     Board board;
@@ -31,9 +32,9 @@ TEST_CASE("Test OperationsExpert and Dispatcher"){
 //Dispatcher
      CHECK_NOTHROW(player2.fly_direct(City::Paris));
      CHECK_NOTHROW(player2.take_card( City::Cairo).fly_direct(City::Cairo));
-   
 
 }
+
 TEST_CASE("Test Scientist and Researcher"){
     
     Board board;
@@ -61,8 +62,8 @@ TEST_CASE("Test Scientist and Researcher"){
     CHECK_NOTHROW(player4.drive(City::Bogota));
     CHECK_THROWS(player4.discover_cure(Color::Yellow));
  
-
 }
+
  TEST_CASE("Test Medic and Virologist"){
 
  Board board;
@@ -89,8 +90,8 @@ TEST_CASE("Test Scientist and Researcher"){
     CHECK_THROWS(player6.treat(City::Miami));
     CHECK_NOTHROW(player6.treat(City::MexicoCity));
 
-
  }
+
  TEST_CASE("Test GeneSplicer and FieldDoctor"){
      Board board;
  	GeneSplicer player7(board, City::Paris);
@@ -114,8 +115,6 @@ TEST_CASE("Test Scientist and Researcher"){
     board[City::Taipei] = 4;
     board[City::Santiago] = 5;
 
-
-    //Medic
     CHECK_NOTHROW(player8.treat(City::Osaka));
     CHECK_NOTHROW(player8.treat(City::Tokyo));
     CHECK_EQ(board[City::Osaka], 4);
